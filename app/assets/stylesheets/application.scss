@@ -13,3 +13,27 @@
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+
+.questions-container {
+  @extend .container;
+  margin-top: 7%;
+}
+
+.question-card {
+  @extend .card;
+  @extend .mt-3;
+  margin: 3%;
+}
+
+.description {
+  @extend .mt-2;
+}
+
+.answer {
+  @extend .container;
+  @extend .mt-2;
+}
+
+.question-form {
+  @extend .container;
+}

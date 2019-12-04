@@ -1,0 +1,63 @@
+<div class="questions-container">
+  <div class="card">
+    <div class="card-header">
+      questions_set
+    </div>
+    <% (0..5).each do |i| %>
+      <div class="question-card" id=<%= "#{i}" %> >
+        <div class="card-header">
+          <%= "question_#{i}" %>
+        </div>
+        <div class="card-body">
+          <div class="name font-weight-bold">
+            <%= link_to "question_#{i}", "#answer-field" %>
+          </div>
+          <div class="description">
+            <p class="font-weight-bold">
+              Description:
+            </p>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quisquam ducimus tenetur praesentium optio! Deleniti incidunt recusandae voluptas aliquam fugit praesentium esse iste doloribus! Ex laudantium excepturi nostrum explicabo eligendi?
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="question-from mt-4">
+  <div class="container" id="answer-field">
+    <div class="card">
+      <div class="card-header">
+        question_
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          <%= link_to '#ID' %>
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, vel recusandae. Eos similique fugiat itaque sequi, perspiciatis autem, sapiente praesentium error eaque provident in necessitatibus veniam. Id praesentium nam voluptatem.
+        </div>
+        <% ('A'..'E').each do |a| %>
+          <input type="radio" name="option" value=<%="#{a.downcase}"%>> <%="#{a.upcase}"%><br>
+        <% end %>
+        <div class="answer">
+          <div class="row">
+            <div class="font-weight-bold">
+              The answer:
+            </div>
+            <p class="one-answer font-weight-bold">
+              ABCDE
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="#{ID}">Notes</label>
+          <textarea class="form-control" id="#{ID}" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Confirm Answer</button>
+      </div>
+    </div>
+  </div>
+</div>
