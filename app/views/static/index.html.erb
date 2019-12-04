@@ -34,13 +34,13 @@
       </div>
       <div class="card-body">
         <div class="card-title">
-          <%= link_to '#ID' %>
+          <%= link_to 'Please select one question', id: 'question_link' %>
         </div>
         <div class="description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, vel recusandae. Eos similique fugiat itaque sequi, perspiciatis autem, sapiente praesentium error eaque provident in necessitatibus veniam. Id praesentium nam voluptatem.
         </div>
         <% ('A'..'E').each do |a| %>
-          <input type="radio" name="option" value=<%="#{a.downcase}"%>> <%="#{a.upcase}"%><br>
+          <input type="radio" name="option" value=<%="#{a.downcase}"%> id=<%="#{a.downcase}"%>> <%="#{a.upcase}"%><br>
         <% end %>
         <div class="answer">
           <div class="row">
