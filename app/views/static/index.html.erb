@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
           <div class="name font-weight-bold">
-            <%= link_to "Answer question_#{i}", "#answer-field" %>
+            <%= link_to "Answer question_#{i}", "#answer-field", class: 'sliding' %>
           </div>
           <div class="description">
             <p class="font-weight-bold">
@@ -34,7 +34,7 @@
       </div>
       <div class="question-form-card-body">
         <div class="question-form-card-title">
-          <%= link_to 'Please select one question', id: 'question_link' %>
+          <%= link_to 'Please select one question', input_html: {id: "question_link"} %>
         </div>
         <div class="description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero omnis nostrum atque dolore ut hic officiis eum in consectetur reprehenderit distinctio, magnam fugit labore iure blanditiis quis voluptatum rerum mollitia?
@@ -69,3 +69,11 @@
   </div>
 </div>
 <%= render 'shared/modal' %>
+
+<script>
+  $(".sliding").click(function(e) {
+    e.preventDefault();
+    var aid = $(this).attr("href");
+    $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
+  });
+</script>
