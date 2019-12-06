@@ -17,3 +17,10 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(document).ready(function() {
+  $('input[name="option"]', '#answer-form').click(function(){
+    var idForm = $('input[name=option]:checked', '#answer-form').attr('id');
+    $('#answer').text($("label[for='"+idForm+"']", '#answer-form').text().trim());
+  });
+});

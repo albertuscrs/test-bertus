@@ -10,30 +10,80 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require css/success-error-icon
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
- @import "bootstrap";
+@import "bootstrap";
 
-.questions-container {
-  @extend .container;
-  margin-top: 7%;
-}
-
-.question-card {
-  @extend .card;
-  @extend .mt-3;
-  margin: 3%;
-}
-
-.description {
-  @extend .mt-2;
-}
+$light-color: #f8f9fa;
 
 .answer {
   @extend .container;
   @extend .mt-2;
 }
 
+.description {
+  @extend .mt-2;
+}
+
+.my-own-footer {
+  @extend .container-fluid;
+  @extend .bg-light;
+
+  margin-top: 2%;
+  background-color: $light-color;
+}
+
+.options {
+  @extend .mt-2;
+}
+
+.questions-container {
+  @extend .container;
+  margin-top: 2%;
+}
+
 .question-form {
   @extend .container;
+}
+
+.question-form-card {
+  @extend .border-primary;
+  @extend .card;
+}
+
+.question-form-card-header {
+  @extend .border-primary;
+  @extend .card-header;
+}
+
+.question-form-card-body {
+  @extend .border-primary;
+  @extend .card-body;
+}
+
+.question-form-card-title {
+  @extend .card-title;
+}
+
+.question-card {
+  @extend .border-dark;
+  @extend .card;
+  @extend .mt-3;
+  margin: 3%;
+}
+
+.question-card-header {
+  @extend .border-dark;
+  @extend .card-header;
+}
+
+.questions-set-card {
+  @extend .border-primary;
+  @extend .card;
+}
+
+.questions-card-header {
+  @extend .border-primary;
+  @extend .card-header;
 }
