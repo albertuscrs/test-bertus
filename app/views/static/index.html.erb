@@ -1,39 +1,12 @@
-<div class="questions-container">
-  <div class="questions-set-card">
-    <div class="questions-card-header">
-      questions_set
-    </div>
-    <% (0..5).each do |i| %>
-      <div class="question-card" id=<%= "#{i}" %> >
-        <div class="question-card-header">
-          <%= "question_#{i}" %>
-        </div>
-        <div class="card-body">
-          <div class="name font-weight-bold">
-            <%= link_to "Answer question_#{i}", "#answer-field", class: 'sliding', data: {question: "#{i}"} %>
-          </div>
-          <div class="description">
-            <p class="font-weight-bold">
-              Description:
-            </p>
-            <p class="card-text">
-              <%= "#{i} " %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quisquam ducimus tenetur praesentium optio! Deleniti incidunt recusandae voluptas aliquam fugit praesentium esse iste doloribus! Ex laudantium excepturi nostrum explicabo eligendi?
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
+<%= render 'questions_set', layout: 'Layout 1' %>
 <div class="question-from mt-4">
   <div class="container" id="answer-field">
     <div class="question-form-card">
-      <div class="question-form-card-header">
+      <div class="question-form-card-header question_rcv">
         question_
       </div>
       <div class="question-form-card-body">
-        <div class="question-form-card-title">
+        <div class="question-form-card-title question_id">
           <%= link_to 'Please select one question', input_html: {id: "question_link"} %>
         </div>
         <div class="description">
@@ -43,7 +16,7 @@
           <div class="options">
             <% ('A'..'E').each do |a| %>
               <div class="custom-control custom-radio">
-                <input type="radio" name="option" class="custom-control-input" value=<%="#{a.downcase}"%> id=<%="option_#{a.downcase}"%>>
+                <input type="radio" name="option" class="custom-control-input" value=<%="#{a.downcase}"%> id=<%="option_#{a.downcase}"%> required>
                 <label class="custom-control-label" for=<%="option_#{a.downcase}"%>>&nbsp;Maybe <%="#{a.upcase}"%></label><br>
               </div>
             <% end %>
@@ -54,7 +27,7 @@
                 The answer:&nbsp;
               </div>
               <p class="one-answer font-weight-bold" id="answer">
-                Choose one answer
+                Choose an answer
               </p>
             </div>
           </div>
@@ -73,6 +46,12 @@
 <script>
   $(".sliding").click(function(e) {
     e.preventDefault();
+    var questionId = $(this).data('id');
+    var question = $(this).data('question');
+    console.log(questionId);
+    console.log(question);
+    $('.question_id').text('ID: '+questionId);
+    $('.question_rcv').text(question);
     var aid = $(this).attr("href");
     $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
   });

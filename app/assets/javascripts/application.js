@@ -23,4 +23,8 @@ $(document).ready(function() {
     var idForm = $('input[name=option]:checked', '#answer-form').attr('id');
     $('#answer').text($("label[for='"+idForm+"']", '#answer-form').text().trim());
   });
+  $('.navbar-nav .nav-link').click(function(){
+      $('.navbar-nav .nav-link').removeClass('active');
+      $(this).addClass('active');
+  })
 });

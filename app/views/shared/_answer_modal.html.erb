@@ -1,0 +1,74 @@
+<div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Answer Question</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="answer-field">
+          <div class="question-form-card">
+            <div class="question-form-card-header question_rcv">
+              question_
+            </div>
+            <div class="question-form-card-body">
+              <div class="question-form-card-title question_id">
+                <%= link_to 'Please select one question' %>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero omnis nostrum atque dolore ut hic officiis eum in consectetur reprehenderit distinctio, magnam fugit labore iure blanditiis quis voluptatum rerum mollitia?
+              </div>
+              <form id="answer-form">
+                <div class="options">
+                  <% ('A'..'E').each do |a| %>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" name="option" class="custom-control-input" value=<%="#{a.downcase}"%> id=<%="option_#{a.downcase}"%> required>
+                      <label class="custom-control-label" for=<%="option_#{a.downcase}"%>>&nbsp;Maybe <%="#{a.upcase}"%></label><br>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="answer">
+                  <div class="row">
+                    <div class="font-weight-bold">
+                      The answer:&nbsp;
+                    </div>
+                    <p class="one-answer font-weight-bold" id="answer">
+                      Choose an answer
+                    </p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="#{ID}">Notes</label>
+                  <textarea class="form-control" id="#{ID}" rows="3"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitModal" data-dismiss="modal">Confirm Answer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/modal' %>
+<script>
+  $('input[name="option"]', '#answer-form').click(function(){
+    var idForm = $('input[name=option]:checked', '#answer-form').attr('id');
+    $('#answer').text($("label[for='"+idForm+"']", '#answer-form').text().trim());
+  });
+  $('#answerModal').on('hidden.bs.modal', function (e) {
+    $('input:radio[name=option]').each(function () { $(this).prop('checked', false); });
+    $('#answer').text('Choose an answer');
+  })
+  $('#answerModal').on('show.bs.modal', function(e) {
+    var questionId = $(e.relatedTarget).data('id');
+    var question = $(e.relatedTarget).data('question');
+    $('.question_id').text('ID: '+questionId);
+    $('.question_rcv').text(question);
+  });
+</script>

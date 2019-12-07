@@ -1,0 +1,32 @@
+<div class="questions-container">
+  <div class="questions-set-card">
+    <div class="questions-card-header">
+      questions_set <%= "#{layout}" %>
+    </div>
+    <% (0..5).each do |i| %>
+      <div class="question-card" id=<%= "#{i}" %> >
+        <div class="question-card-header">
+          <%= "question_#{i}" %>
+        </div>
+        <div class="card-body">
+          <div class="description">
+            <p class="font-weight-bold">
+              Description:
+            </p>
+            <p class="card-text">
+              <%= "#{i} " %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quisquam ducimus tenetur praesentium optio! Deleniti incidunt recusandae voluptas aliquam fugit praesentium esse iste doloribus! Ex laudantium excepturi nostrum explicabo eligendi?
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="name font-weight-bold">
+            <%= link_to "#answer-field", class: 'sliding btn btn-md btn-primary', data: {question: "question_#{i}", id: "#{i}", toggle: "modal", target: "#answerModal"} do %>
+              <i class="fa fa-commenting" ></i>
+              <span><%= "Answer question_#{i}" %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
