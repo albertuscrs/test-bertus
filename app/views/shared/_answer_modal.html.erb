@@ -40,8 +40,8 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="#{ID}">Notes</label>
-                  <textarea class="form-control" id="#{ID}" rows="3"></textarea>
+                  <label for="notes">Notes</label>
+                  <textarea class="form-control" id="notes" name="noteArea" rows="3"></textarea>
                 </div>
               </form>
             </div>
@@ -62,7 +62,7 @@
     $('#answer').text($("label[for='"+idForm+"']", '#answer-form').text().trim());
   });
   $('#answerModal').on('hidden.bs.modal', function (e) {
-    $('input:radio[name=option]').each(function () { $(this).prop('checked', false); });
+    $('#answer-form').trigger("reset");
     $('#answer').text('Choose an answer');
   })
   $('#answerModal').on('show.bs.modal', function(e) {

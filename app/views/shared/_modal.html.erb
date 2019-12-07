@@ -24,3 +24,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('#submitModal').on('hidden.bs.modal', function (e) {
+    $('#answer-form').trigger("reset");
+    $('#answer').text('Choose an answer');
+  })
+</script>

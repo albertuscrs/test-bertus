@@ -14,14 +14,14 @@
               Description:
             </p>
             <p class="card-text">
-              <%= "#{i} " %>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quisquam ducimus tenetur praesentium optio! Deleniti incidunt recusandae voluptas aliquam fugit praesentium esse iste doloribus! Ex laudantium excepturi nostrum explicabo eligendi?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quisquam ducimus tenetur praesentium optio! Deleniti incidunt recusandae voluptas aliquam fugit praesentium esse iste doloribus! Ex laudantium excepturi nostrum explicabo eligendi?
             </p>
           </div>
         </div>
         <div class="card-footer">
-          <div class="name font-weight-bold">
+          <div class="float-md-right">
             <%= link_to "#answer-field", class: 'sliding btn btn-md btn-primary', data: {question: "question_#{i}", id: "#{i}", toggle: "modal", target: "#answerModal"} do %>
-              <i class="fa fa-commenting" ></i>
+              <i class="fa fa-commenting mr-2"></i>
               <span><%= "Answer question_#{i}" %></span>
             <% end %>
           </div>

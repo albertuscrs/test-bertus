@@ -36,7 +36,7 @@
             <textarea class="form-control" id="#{ID}" rows="3"></textarea>
           </div>
         </form>
-        <button type="submit" class="btn btn-primary mb-2" data-toggle="modal" data-target="#submitModal">Confirm Answer</button>
+        <button type="submit" id='submit_btn' class="btn btn-primary mb-2" data-toggle="modal" data-target="#submitModal">Confirm Answer</button>
       </div>
     </div>
   </div>
@@ -44,12 +44,14 @@
 <%= render 'shared/modal' %>
 
 <script>
+  $('#answer-field').hide();
   $(".sliding").click(function(e) {
     e.preventDefault();
+    $('#answer-field').show();
+    $('#answer-form').trigger("reset");
     var questionId = $(this).data('id');
     var question = $(this).data('question');
-    console.log(questionId);
-    console.log(question);
+    $('#answer').text('Choose an answer');
     $('.question_id').text('ID: '+questionId);
     $('.question_rcv').text(question);
     var aid = $(this).attr("href");
