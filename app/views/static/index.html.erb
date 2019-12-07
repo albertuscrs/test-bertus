@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
           <div class="name font-weight-bold">
-            <%= link_to "Answer question_#{i}", "#answer-field", class: 'sliding' %>
+            <%= link_to "Answer question_#{i}", "#answer-field", class: 'sliding', data: {question: "#{i}"} %>
           </div>
           <div class="description">
             <p class="font-weight-bold">
