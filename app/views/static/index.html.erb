@@ -16,7 +16,7 @@
           <div class="options">
             <% ('A'..'E').each do |a| %>
               <div class="custom-control custom-radio">
-                <input type="radio" name="option" class="custom-control-input" value=<%="#{a.downcase}"%> id=<%="option_#{a.downcase}"%> required>
+                <input type="radio" name="option" class="custom-control-input" value=<%="#{a.downcase}"%> id=<%="option_#{a.downcase}"%> <%= 'required' if a == "A" %>>
                 <label class="custom-control-label" for=<%="option_#{a.downcase}"%>>&nbsp;Maybe <%="#{a.upcase}"%></label><br>
               </div>
             <% end %>
@@ -35,8 +35,8 @@
             <label for="#{ID}">Notes</label>
             <textarea class="form-control" id="#{ID}" rows="3"></textarea>
           </div>
+          <button type="submit" id='submit_btn' class="btn btn-primary mb-2" data-toggle="modal" data-target="#submitModal">Confirm Answer</button>
         </form>
-        <button type="submit" id='submit_btn' class="btn btn-primary mb-2" data-toggle="modal" data-target="#submitModal">Confirm Answer</button>
       </div>
     </div>
   </div>
